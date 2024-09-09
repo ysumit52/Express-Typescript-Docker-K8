@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Node.js application service
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: yourimagename
+    container_name: server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_URI: mongodb://mongodb:27017
+      DATABASE: express_typescript_boilerplate
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: 'unless-stopped'
+    networks:
+      - backend
+
+  # MongoDB service
+  mongodb:
+    container_name: database
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - backend
+
+# Define named volumes
+volumes:
+  mongo-data:
+
+networks:
+  backend:
+    driver: bridge
