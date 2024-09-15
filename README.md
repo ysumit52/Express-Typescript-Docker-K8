@@ -291,7 +291,7 @@ net:
 # AWS EKS Deployment
 
 
-Create an EKS cluster and deploy 2048 game into that cluster
+Create an EKS cluster and deploy application into that cluster
 ==================================================
 
 Task 1: Create an EKS cluster
@@ -364,7 +364,7 @@ kubectl get nodes
 sudo yum install nano -y
 ```
 
-Task 4: Create a new POD in EKS for the 2048 game
+Task 4: Create a new POD in EKS for the application
 ================================================
 
 ## clean up the files in cloudshell (Optional)
@@ -372,7 +372,7 @@ Task 4: Create a new POD in EKS for the 2048 game
 rm *.* 
 ```
 
-## create the config file in YAML to deploy 2048 game pod into the cluster
+## create the config file in YAML to deploy application pod into the cluster
 copy all the kubernetes template in the CloudShell
 
 
@@ -388,16 +388,16 @@ kubectl get pods
 Task 5: Setup Load Balancer Service
 ===================================
 ## view details of the modified service
-kubectl describe svc mygame-svc
+kubectl describe svc my-svc
 
 ## Access the LoadBalancer Ingress on the kops instance
 curl <LoadBalancer_Ingress>:<Port_number>
 or
-curl a06aa56b81f5741268daca84dca6b4f8-694631959.us-east-1.elb.amazonaws.com:80
+curl (http://a63420349f3764f8eb12696bdfec6629-353104377.eu-north-1.elb.amazonaws.com:3000/api/v1/auth/register)
 (try this from your laptop, not from your cloudshell)
 
 ## Go to EC2 console. get the DNS name of ELB and paste the DNS into address bar of the browser
-## It will show the 2048 game. You can play. (need to wait for 2-3 minutes for the 
+## It will show the application. (need to wait for 2-3 minutes for the 
 ## setup to be complete)
 
 
@@ -408,7 +408,7 @@ kubectl get pods
 kubectl delete -f 2048-pod.yaml
 
 kubectl get services
-kubectl delete -f mygame-svc.yaml
+kubectl delete -f my-svc.yaml
 
 ####################################################################
 
