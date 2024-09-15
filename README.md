@@ -307,7 +307,7 @@ Create another IAM role 'eks-node-grp-role' with 3 policies attached:
     - AmazonEKS_CNI_Policy
 
 Choose default VPC, Choose 2 or 3 subnets
-Choose a security group which open the ports 22, 80, 8080
+Choose a security group which open the ports 22, 80, 3000
 cluster endpoint access: public
 
 ## For VPC CNI, CoreDNS and kube-proxy, choose the default versions, For CNI, latest and default are 
@@ -378,7 +378,7 @@ copy all the kubernetes template in the CloudShell
 
 # apply the config file to create the pod
 ```bash
-kubectl apply -f 2048-pod.yaml
+kubectl apply -f <file_name>.yaml
 ```
 
 ## view the newly created pod
@@ -405,7 +405,7 @@ Task 3: Cleanup
 ---------------
 ## Clean up all the resources created in the task
 kubectl get pods
-kubectl delete -f 2048-pod.yaml
+kubectl delete -f <file_name>.yaml
 
 kubectl get services
 kubectl delete -f my-svc.yaml
