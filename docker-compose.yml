@@ -6,7 +6,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: yourimagename
+    image: mitsu52/node_typescript_mongodb:v2
     container_name: server
     ports:
       - "3000:3000"
