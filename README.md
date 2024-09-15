@@ -1,5 +1,5 @@
 # Express-Typescript-Docker-K8
-A boilerplate for creating API using Express, Typescript, MongoDB, Jest, Docker and K8s
+A boilerplate for creating API using Express, Typescript, MongoDB, Jest, Docker, K8 and EKS (AWS)
 
 ### What is it?
 Try to implement A Class Base Routing package (routing-controllers) with clean structure and in Node.js, Express.js, Typescript, Docker, K8s
